@@ -1,0 +1,22 @@
+@startuml
+interface Door {
+  +open()
+}
+
+class RealDoor implements Door {
+  +open()
+}
+
+class DoorProxy implements Door {
+  -RealDoor realDoor
+  +open()
+  +checkAccess()
+}
+
+class Client {
+  +accessDoor()
+}
+
+Client --> DoorProxy
+DoorProxy --> RealDoor
+@enduml

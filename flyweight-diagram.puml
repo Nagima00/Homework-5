@@ -1,0 +1,23 @@
+@startuml
+class Tree {
+  -type: String
+  -color: String
+  -texture: String
+  +draw(x, y)
+}
+
+class TreeFactory {
+  +getTree(type, color, texture): Tree
+}
+
+class Forest {
+  -List<position>
+  +plantTree(x, y, type, color, texture)
+}
+
+class Client
+
+Client --> Forest
+Forest --> TreeFactory
+TreeFactory --> Tree
+@enduml
